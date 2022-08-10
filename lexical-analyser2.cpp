@@ -32,7 +32,7 @@ typedef vector<int> vi;
 typedef vector<vi> vvi;
 
 //................float_Variable..........
-void floatVar(string str){
+bool floatVar(string str){
      bool chk = true;
     for(int i=0;i<str.size();i++){
       if((str[i]>='a' && str[i]<='z')  ||(str[i]>='0' && str[i]<='9')){
@@ -45,12 +45,12 @@ void floatVar(string str){
   
   if(chk)
   {if((str[0]>='a' && str[0]<='h') || (str[0]>='A' && str[0]<='H') || (str[0]>='o' && str[0]<='z') || (str[0]>='O' && str[0]<='Z'))
-    cout<<"Float Variable";} 
-else cout<<"Invalid Input";
+    return true;} 
+  return false;
 }
 
 //.......floatNumber................
-void numFloat(string str){
+bool numFloat(string str){
      bool chk = true;
     for(int i=0;i<str.size();i++){
       if((str[i]>='0' && str[i]<='9')|| str[i]=='.'){
@@ -61,24 +61,25 @@ void numFloat(string str){
             chk = false;
             break;}}
  
- int cnt=0;
+ int cnt=0,k=0;
  for(int i=0;i<str.size();i++){
     if(str[i]=='.')
-    {
+    {  k=i;
         while((str[i+1]>='0' && str[i+1]<='9')){
             cnt++;
         i++;
         } 
     }
  }  // cout<<cnt; ok
+ //cout<<k; ok
  if(chk && cnt==2)
- {if( (str[0]>='0' && str[0]<='9'))
-    cout<<"Float Number";}  
-else cout<<"Invalid Input";
+ {if((str[0]=='0' && k==1) || (str[0]>='1' && str[0]<='9'))
+   return true;}  
+   return false;
 }
 
 //.......double number...............
-void numDouble(string str){
+bool numDouble(string str){
      bool chk = true;
     for(int i=0;i<str.size();i++){
       if((str[i]>='0' && str[i]<='9')|| str[i]=='.'){
@@ -89,10 +90,10 @@ void numDouble(string str){
             chk = false;
             break;}}
  
- int cnt=0;
+ int cnt=0,k=0;
  for(int i=0;i<str.size();i++){
     if(str[i]=='.')
-    {
+    { k=i;
         while((str[i+1]>='0' && str[i+1]<='9')){
             cnt++;
         i++;
@@ -100,9 +101,9 @@ void numDouble(string str){
     }
  }  // cout<<cnt; ok
  if(chk && cnt>2)
- {if( (str[0]>='0' && str[0]<='9'))
-    cout<<"Double Number";}  
-else cout<<"Invalid Input";
+ {if((str[0]=='0' && k==1) ||  (str[0]>='1' && str[0]<='9')) return true;
+    }  
+   return false;
 }
 
 int main(){
@@ -110,10 +111,10 @@ int main(){
   cin>>str;
   int i,j;
 
-   //floatVar(str);
-   // numFloat(str);
-   numDouble(str);
- 
+   if(floatVar(str)) cout<<"Float Variable";
+   else if(numFloat(str)) cout<<"Float Number";
+   else if(numDouble(str)) cout<<"Double Number";
+   else cout<<"Invalid Input";
 ok
 
 }
