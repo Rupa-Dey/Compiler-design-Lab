@@ -1,4 +1,4 @@
-//count the character word letter and digit
+//count the character word letter and digit.
 
 #include<bits/stdc++.h>
 using namespace std;
