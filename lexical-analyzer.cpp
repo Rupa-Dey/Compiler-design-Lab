@@ -69,7 +69,7 @@ bool longtINT(string str){
 
 }
 
-//.......integerVariable...............
+//.......integerVariable.................
 bool varINT(string str){
       bool chk = true;
     for(int i=0;i<str.size();i++){
