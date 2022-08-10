@@ -1,4 +1,4 @@
-//count the vowel and consonent
+//count the vowel and consonent..
 
 #include<bits/stdc++.h>
 using namespace std;
