@@ -32,7 +32,7 @@ typedef vector<int> vi;
 typedef vector<vi> vvi;
 
 //................shortInt..........
-void shortINT(string str){
+bool shortINT(string str){
 
     bool chk = true;
     for(int i=0;i<str.size();i++){
@@ -45,14 +45,14 @@ void shortINT(string str){
             break;}}
     
      if((str[0]>='1' && str[0]<='9') && (str.size()<=4 && chk) )
-             cout<<"shortInt";
-        else cout<<"Invalid Input";
+           return true;
+      return false;
        
   
 }
 
 //.......longINT................
-void longtINT(string str){
+bool longtINT(string str){
       bool chk = true;
     for(int i=0;i<str.size();i++){
       if(str[i]>='0' && str[i]<='9'){
@@ -63,12 +63,14 @@ void longtINT(string str){
             chk = false;
             break;}}
    if((str[0]>='1' && str[0]<='9') && (str.size()>4 && chk))
-    cout<<"longtInt";
-else cout<<"Invalid Input";
+    return true;
+    
+    return false;
+
 }
 
 //.......integerVariable...............
-void varINT(string str){
+bool varINT(string str){
       bool chk = true;
     for(int i=0;i<str.size();i++){
       if((str[i]>='a' && str[i]<='z')  ||(str[i]>='0' && str[i]<='9')){
@@ -80,18 +82,19 @@ void varINT(string str){
             break;}}
   
   if(chk) {if((str[0]>='i' && str[0]<='n') || (str[0]>='I' && str[0]<='N') )
-    cout<<"integer Variable";}
-else cout<<"Invalid Input";
+    return true;
+  }
+  return false;
 }
 int main(){
   string str;
   cin>>str;
   int i,j;
 
-//shortINT(str);
-//longtINT(str);
-varINT(str);
- 
+    if(shortINT(str))   cout<<"shortInt";
+    else if(longtINT(str)) cout<<"longtInt";
+    else if(varINT(str))    cout<<"integer Variable";
+    else cout<<"Invalid Input";
 ok
 
 }
