@@ -5,8 +5,8 @@ using namespace std;
 int main(){
 
  int n;
- cin>>n;
-  vector<string> s(n);
+ //cin>>n;
+  vector<string> s(3);
 
   int i,j,k;
   //s.clear();
